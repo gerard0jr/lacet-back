@@ -1,6 +1,5 @@
 const express = require('express');
 const router  = express.Router();
-// const connection = require('../helpers/database')
 const parser = require('xml-js')
 const mysql = require('mysql')
 
