@@ -64,15 +64,6 @@ app.locals.title = 'bdLACET backend';
 
 const index = require('./routes/index');
 app.use('/', index);
-router.post('/searchNow', (req,res,next) => {
-  console.log('searchnow')
-  const { input } = req.body
-  const sql = `SELECT * FROM registers WHERE title LIKE '%${input}%'`
-  pool.query(sql, (err,rows) => {
-    res.status(200).send(rows)
-    console.log(rows)
-  })
-})
 app.get('*', (req,res) => {
   res.sendFile(path.join(__dirname,'public', 'index.html'))
 })

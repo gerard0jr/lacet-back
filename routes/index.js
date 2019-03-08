@@ -86,4 +86,12 @@ router.post('/searchNow', (req,res,next) => {
   })
 })
 
+router.get('/getAll', (req,res,next) => {
+  const sql = `SELECT * FROM registers`
+  pool.query(sql, (err,rows) => {
+    res.status(200).send(rows)
+    console.log(rows)
+  })
+})
+
 module.exports = router;

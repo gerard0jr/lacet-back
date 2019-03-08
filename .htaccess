@@ -1,3 +1,8 @@
 RewriteEngine on
-RewriteRule ^index.html.var$ http://bdlacet.mx:3000/$1 [L,P,QSA]
-RewriteRule (.*) http://localhost:3000/$1 [P,L]
+<IfModule mod_rewrite.c>
+ RewriteCond %{HTTPS} !on [NC]
+ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+RewriteRule ^index.html.var$ https://bdlacet.mx:3000/$1 [L,P,QSA]
+RewriteRule (.*) https://localhost:3000/$1 [P,L]
