@@ -22,6 +22,14 @@ router.get('/', (req, res, next) => {
 
 
 router.post('/upload', (req,res,next) => {
+  const drop = `DROP TABLE registers;`
+  const create = 'CREATE TABLE registers (idregisters INT NOT NULL AUTO_INCREMENT, title LONGTEXT NULL, notes LONGTEXT NULL, custom1 LONGTEXT NULL, custom2 LONGTEXT NULL, custom3 LONGTEXT NULL, custom4 LONGTEXT NULL, custom5 LONGTEXT NULL, misc1 LONGTEXT NULL, misc2 LONGTEXT NULL, misc3 LONGTEXT NULL, PRIMARY KEY (idregisters), UNIQUE INDEX idregisters_UNIQUE (idregisters ASC));'
+   pool.query(drop, (err,data) => {
+      pool.query(create, (err,data) => {
+        console.log(err) 
+        console.log(data)
+      })
+   })
 
   const xml = req.body.data
   
