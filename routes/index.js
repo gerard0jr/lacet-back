@@ -92,7 +92,7 @@ router.post('/upload', (req,res,next) => {
 
 router.post('/searchNow', (req,res,next) => {
   const { input } = req.body
-  const sql = `SELECT * FROM registers WHERE title LIKE '%${input}%'`
+  const sql = `SELECT * FROM registers WHERE concat(title, notes, custom1, custom2, custom3, custom4, custom5, misc1, misc2, misc3) LIKE '%${input}%'`
   pool.query(sql, (err,rows) => {
     res.status(200).send(rows)
     console.log(rows)
