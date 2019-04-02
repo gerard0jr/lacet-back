@@ -43,7 +43,6 @@ router.post('/upload', (req,res,next) => {
   let registerFiltered = []
   let dataArray = []
   let custom1,custom2,custom3,custom4,custom5,misc1,misc2,misc3
-  
   json.xml.records.record.map( item => {
     if(typeof item.titles === 'undefined') title = ''
     else title = `'${item.titles.title.style._text}'`
